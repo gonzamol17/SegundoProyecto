@@ -4,28 +4,22 @@ from pytest_bdd import scenarios, given, when, then
 from colorama import Fore, Back, Style
 from selenium.common.exceptions import NoSuchElementException
 from POM.Pages.MyAccountPage import MyAccountPage
-from POM.Pages import ProductPage
-import HtmlTestRunner
-
-
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
+from POM.Pages.ProductPage import ProductPage
 
 
 scenarios('../features/Verify_Out_of_Stock.feature')
 
 
-
 @given("I am on the Automation test store")
 def step_GoAutomationTestStore(browser):
-     browser.get(AUTOMATION_PAGE)
      time.sleep(2)
 
 @when("I select a product that I know is out of stock")
 def step_SelectOutofStockProduct(browser):
      my = MyAccountPage(browser)
      my.seleccionar_Producto_Books_Paperback()
-     browser.execute_script("window.scrollTo(0, 400)")
+     time.sleep(2)
+     browser.execute_script("window.scrollTo(0, 500)")
      time.sleep(2)
 
 
@@ -59,7 +53,7 @@ def step_Verifyleyend(browser):
           print(Fore.GREEN + "El botón ADD TO CART No está")
           print(e)
 
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#

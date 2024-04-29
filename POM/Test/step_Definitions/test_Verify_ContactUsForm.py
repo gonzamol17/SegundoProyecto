@@ -6,8 +6,6 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ContactUsPage import ContactUsPage
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -15,7 +13,6 @@ scenarios('../features/Verify_ContactUsForm.feature')
 
 @given("I am on the Automation test logged in")
 def step_Login(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)
@@ -83,6 +80,6 @@ def step_VerifyErrorValidation(browser):
     print(Fore.RED + "\n" + enquiry)
     print("El formulario no ha podido ser enviado")
 
-    if __name__ == '__main__':
-        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-            output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+    # if __name__ == '__main__':
+    #     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+    #         output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

@@ -5,18 +5,12 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShampooPage import ShampooPage
-import HtmlTestRunner
-
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 
 scenarios('../features/Verify_Review.feature')
 
 
 @given("I am on login in the Automation test")
 def step_login(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)
@@ -58,8 +52,8 @@ def step_GetError(browser):
     print("Al no cargar el código requerido, se está mostrando un mensaje de error: "+sp.errorWithoutCode())
 
 
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
+#
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#

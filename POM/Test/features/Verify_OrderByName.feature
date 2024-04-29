@@ -5,10 +5,10 @@ Feature: Sort listed products by some criteria
 @Regression
   Scenario Outline: Sort paperback products by some criteria
     Given I am on the Automation page
-    When select the Books-Paperback products and select sort by "<criteria>"
+    When select the Books-Paperback products and select sort by <criteria>
     Then I verify that the products are ordered by the chosen criteria
 
 
-      Examples: users
-        | criteria   |
-        | Name A - Z |
+      Examples: list
+      |criteria|
+      |Name A - Z|

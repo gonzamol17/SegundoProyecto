@@ -10,13 +10,14 @@ import time
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
+
 
 class LoginWithExternalFile(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
+        cls.driver = webdriver.Chrome()
+        #cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 
@@ -31,7 +32,7 @@ class LoginWithExternalFile(unittest.TestCase):
         my = MyAccountPage(driver)
 
         #Esta parte toma todas las filas y columnas del archivo excel
-        path = "/Datos/Users.xlsx"
+        path = "C:\\Users\\GonzaloJavierMolinaC\\OneDrive - Capitole Consulting\\Escritorio\\Automation Practice\\pythonprojects\\SegundoProyecto\\Datos\\Users.xlsx"
         inputWorkbook = xlrd.open_workbook(path)
         inputWorksheet = inputWorkbook.sheet_by_index(0)
         row = inputWorksheet.nrows
@@ -58,6 +59,6 @@ class LoginWithExternalFile(unittest.TestCase):
         print("Test Completed")
 
 
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#

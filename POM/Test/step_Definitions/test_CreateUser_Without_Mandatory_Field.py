@@ -5,7 +5,6 @@ from pytest_bdd import scenarios, given, when, then
 from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
-import HtmlTestRunner
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -13,9 +12,10 @@ AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 scenarios('../features/CreateUser_Without_Mandatory_Field.feature')
 
+
 @given("I am on the Automation test store page and I select the option to create a new account")
 def step_Go_Login_Page_of_Automation_Test_Store(browser):
-    browser.get(AUTOMATION_PAGE)
+    #browser.get(AUTOMATION_PAGE)
     lp = LandingPage(browser)
     lp.click_Go_Login()
     time.sleep(2)
@@ -54,7 +54,7 @@ def step_Show_Message():
 
 
 
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#
 

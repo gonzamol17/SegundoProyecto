@@ -6,7 +6,7 @@ import time
 class MyTestCase(unittest.TestCase):
     def test_something(self):
         # Esta parte toma todas las filas y columnas del archivo excel
-        path = "/Datos/Users.xlsx"
+        path = "C:\\Users\\GonzaloJavierMolinaC\\OneDrive - Capitole Consulting\\Escritorio\\Automation Practice\\pythonprojects\\SegundoProyecto\\Datos\\Users.xlsx"
         inputWorkbook = xlrd.open_workbook(path)
         inputWorksheet = inputWorkbook.sheet_by_index(0)
         row = inputWorksheet.nrows

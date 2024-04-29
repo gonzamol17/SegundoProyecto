@@ -12,14 +12,15 @@ import warnings
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
+
 
 class LoginWithExternalFileJson(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
         warnings.simplefilter('ignore', ResourceWarning)
-        cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
+        cls.driver = webdriver.Chrome()
+        #cls.driver = webdriver.Chrome("../Drivers/chromedriver.exe")
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 
@@ -33,7 +34,7 @@ class LoginWithExternalFileJson(unittest.TestCase):
         time.sleep(2)
         my = MyAccountPage(driver)
 
-        file = open("/Datos/Login.json", "r")
+        file = open('C:\\Users\\GonzaloJavierMolinaC\\OneDrive - Capitole Consulting\\Escritorio\\Automation Practice\\pythonprojects\\SegundoProyecto\\Datos\\Login.json')
         jsondata = file.read()
         obj = json.loads(jsondata)
         list = obj['users']
@@ -62,7 +63,7 @@ class LoginWithExternalFileJson(unittest.TestCase):
 
 
 
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#

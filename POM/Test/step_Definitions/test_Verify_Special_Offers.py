@@ -9,17 +9,14 @@ from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.ShampooPage import ShampooPage
-import HtmlTestRunner
-
 from POM.Pages.SpecialOffersPage import SpecialOffersPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
+
 scenarios('../features/Verify_Special_Offers.feature')
 
 
 @given("I am on Automation test page")
 def step_GoAutomationTestPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
 
 

@@ -4,15 +4,12 @@ from pytest_bdd import scenarios, given, when, then
 
 from POM.Pages.MyAccountPage import MyAccountPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 
 scenarios('../features/Verify_BannersHome.feature')
 
 
 @given("I am on the Automation page store")
 def step_GoAutomationPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
 
 @when("I stand on the banners section and check each one")
