@@ -5,13 +5,8 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShampooPage import ShampooPage
-<<<<<<< HEAD
-
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
-
-=======
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 scenarios('../features/Verify_Review.feature')
 
@@ -57,13 +52,4 @@ def step_GetError(browser):
     error = sp.errorWithoutCode()
     assert "Human verification has failed! Please try again." in sp.errorWithoutCode()
     print("Al no cargar el código requerido, se está mostrando un mensaje de error: "+sp.errorWithoutCode())
-<<<<<<< HEAD
-=======
 
-
-#
-#
-# if __name__ == '__main__':
-#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-#
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

@@ -1,11 +1,7 @@
 import time
 from colorama import Fore
 from pytest_bdd import scenarios, given, when, then, parsers
-<<<<<<< HEAD
-=======
 from pytest_bdd.parsers import parse
-
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 from POM.Pages.MyAccountPage import MyAccountPage
 
 scenarios('../features/Verify_OrderByName.feature')
@@ -15,11 +11,7 @@ scenarios('../features/Verify_OrderByName.feature')
 def step_GoAutomationPage(browser):
     time.sleep(2)
 
-<<<<<<< HEAD
 @when(parsers.parse('select the Books-Paperback products and select sort by "{criteria}"'))
-=======
-@when(parsers.parse("select the Books-Paperback products and select sort by {criteria}"))
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 def step_SelectProductandSortCriteria(browser, criteria):
     my = MyAccountPage(browser)
     my.seleccionar_Producto_Books_Paperback()
