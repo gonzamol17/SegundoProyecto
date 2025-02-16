@@ -4,7 +4,7 @@ from selenium.webdriver import ActionChains
 
 
 class WishlistPageLocators():
-      label_product_selected1 = (By.CSS_SELECTOR, "tbody>tr.wishlist_59>td:nth-child(2)>a")
+      label_product_selected1 = (By.CSS_SELECTOR, "tbody>tr.wishlist_108>td:nth-child(2)>a")
 
 class WishListPage():
 

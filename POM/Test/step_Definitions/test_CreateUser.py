@@ -1,17 +1,11 @@
 import time
 import pytest
-import driver as driver
-from pytest_bdd.parsers import string
-from selenium import webdriver
-import unittest
-from functools import partial
+
 from pytest_bdd import scenarios, given, when, then
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -59,7 +53,3 @@ def step_Login_MyAccount_With_New_User(browser):
     #print(x)
     assert x == 'MY ACCOUNT'
     print("Estoy en la página de My account, se ha creado exitosamente la cuenta del nuevo usuario")
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

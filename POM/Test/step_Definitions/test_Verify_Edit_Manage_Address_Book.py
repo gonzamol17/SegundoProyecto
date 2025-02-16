@@ -5,9 +5,6 @@ from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
-
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -60,8 +57,3 @@ def step_CheckEditedAddress(browser):
     assert "Mandioca 2400, 2do Piso" in account.getAllAddressBook()
     print("La nueva segunda dirección editada/agregada, está dentro de Address Book Entries correctamente")
     time.sleep(2)
-
-
-if __name__ == '__main__':
-        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-            output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

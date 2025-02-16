@@ -6,11 +6,10 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ContactUsPage import ContactUsPage
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+
 scenarios('../features/Verify_ContactUsForm.feature')
 
 @given("I am on the Automation test logged in")

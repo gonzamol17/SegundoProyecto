@@ -2,18 +2,12 @@ import time
 import unittest
 from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from colorama import Fore, Back, Style
-
-from POM.Pages.ForgotLoginPage import ForgotLoginPage
 from POM.Pages.LandingPage import LandingPage
-from POM.Pages.LoginPage import LoginPage
-from POM.Pages.MyAccountPage import MyAccountPage
-from POM.Pages.ShoppingCartPage import ShoppingCartPage
-from POM.Pages.ShampooPage import ShampooPage
-import HtmlTestRunner
-
 from POM.Pages.SpecialOffersPage import SpecialOffersPage
 
+
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+
 scenarios('../features/Verify_Special_Offers.feature')
 
 

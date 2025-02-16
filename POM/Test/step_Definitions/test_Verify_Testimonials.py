@@ -4,7 +4,6 @@ from colorama import Fore, Back, Style
 from POM.Pages.MyAccountPage import MyAccountPage
 
 
-
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 

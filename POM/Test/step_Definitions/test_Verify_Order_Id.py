@@ -11,15 +11,11 @@ from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.CheckoutConfirmationPage import CheckoutConfirmationPage
 from POM.Pages.My_Order_History import My_Order_History
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
-
 scenarios('../features/Verify_Order_Id.feature')
-
 
 @given("I am on the Automation test store page logged in, with zero products")
 def step_login(browser):
@@ -77,10 +73,3 @@ def step_Search_Order_Id(browser):
     aux1 = moh.Verify_Order_History()
     assert Only_order_id in aux1
     print(Fore.GREEN+ "El id de la orden recientemente obtenida, coincide con el id último de mi historial, y es: "+moh.Verify_Order_History())
-
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
-

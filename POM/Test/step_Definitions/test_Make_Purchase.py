@@ -10,8 +10,6 @@ from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.CheckoutConfirmationPage import CheckoutConfirmationPage
 from POM.Pages.CheckoutStatus import CheckoutStatus
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -95,9 +93,9 @@ def step_Select_The_Product(browser):
     print(Fore.CYAN + "Se encuentra el título: " + ccp.show_Title())
     assert ccp.show_Subtitle() == "Shipping"
     print(Fore.CYAN + "Se encuentra el subtitulo: " + ccp.show_Subtitle())
-    assert ccp.show_Name_Shipping() == "Gonzalo Molina\n223232323"
+    assert ccp.show_Name_Shipping() == "gonzalo molina\n434543535"
     print(Fore.CYAN + "Está el nombre del usuario buscado: " + ccp.show_Name_Shipping())
-    assert ccp.show_Address_Shipping() == "Sol de Mayo 550\nCórdoba Cordoba 5000\nArgentina"
+    assert ccp.show_Address_Shipping() == "asfdsafsd Mandioca 2400, 2do Piso\naasfas Cordoba 45453\nArgentina"
     print(Fore.CYAN + "Está el domicilio del usuario: " + ccp.show_Address_Shipping())
     assert ccp.show_Flat_Shipping() == "Flat Shipping Rate"
     print(Fore.CYAN + "Está el título " + ccp.show_Flat_Shipping())
@@ -115,9 +113,9 @@ def step_Select_The_Product(browser):
     print(Fore.CYAN + "El costo total es: " + ccp.show_Total())
     assert ccp.show_Payment_Title() == "Payment"
     print(Fore.CYAN + "Está la sección " + ccp.show_Payment_Title())
-    assert ccp.show_Name_Payment() == "Gonzalo Molina\n223232323"
+    assert ccp.show_Name_Payment() == "gonzalo molina\n434543535"
     print(Fore.CYAN + "El nombre del usuario está " + ccp.show_Name_Payment())
-    assert ccp.show_Address_Payment() == "Sol de Mayo 550\nCórdoba Cordoba 5000\nArgentina"
+    assert ccp.show_Address_Payment() == "asfdsafsd Mandioca 2400, 2do Piso\naasfas Cordoba 45453\nArgentina"
     print(Fore.CYAN + "Está la dirección del usuario " + ccp.show_Address_Payment())
     assert ccp.show_Cash_Deliveryt() == "Cash On Delivery"
     print(Fore.CYAN + "Está el título " + ccp.show_Cash_Deliveryt())
@@ -142,13 +140,7 @@ def step_Verify_Order_Processed(browser):
 
     # Acá verifico que una vez comprado el producto, vuelva a la Landing Page (homepage)
     lp = LandingPage(browser)
-    assert lp.verificar_Nombre_Landing_Page() == 'Welcome back Gonzalo'
+    assert lp.verificar_Nombre_Landing_Page() == 'Welcome back gonzalo'
     print("\n")
     print(Fore.GREEN + "Estas en la página Home")
     time.sleep(2)
-
-
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

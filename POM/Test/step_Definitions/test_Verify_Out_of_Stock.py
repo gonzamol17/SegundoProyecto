@@ -4,16 +4,13 @@ from pytest_bdd import scenarios, given, when, then
 from colorama import Fore, Back, Style
 from selenium.common.exceptions import NoSuchElementException
 from POM.Pages.MyAccountPage import MyAccountPage
-from POM.Pages import ProductPage
-import HtmlTestRunner
-
+from POM.Pages.ProductPage import ProductPage
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 
 scenarios('../features/Verify_Out_of_Stock.feature')
-
 
 
 @given("I am on the Automation test store")
@@ -58,8 +55,4 @@ def step_Verifyleyend(browser):
      except NoSuchElementException as e:
           print(Fore.GREEN + "El botón ADD TO CART No está")
           print(e)
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
 

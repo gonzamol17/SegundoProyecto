@@ -5,9 +5,6 @@ from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
-
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -47,8 +44,3 @@ def step_ShowElementsMenu(browser):
         assert menu.text == items[aux]
         aux = aux + 1
         print(Style.BRIGHT + Fore.MAGENTA + str(idx), menu.text)
-
-    if __name__ == '__main__':
-         unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-                output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-

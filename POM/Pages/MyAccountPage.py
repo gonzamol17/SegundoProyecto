@@ -43,7 +43,7 @@ class MyAccountPageLocators():
       btnContribute = (By.CSS_SELECTOR, "div.pull-right.mr20.mt5>div>a>img")
       linkAbanteCard = (By.CSS_SELECTOR, "div.pull-right.align_center>a")
       testimonials = (By.CSS_SELECTOR, "#testimonialsidebar>div>ul>li")
-      dropDownOrderByNameAZ = (By.ID, "sort")
+      dropDownOrderByNameAZ = (By.CSS_SELECTOR, "select#sort.form-control")
       listOfPaperback = (By.CSS_SELECTOR, "div.thumbnails.grid.row.list-inline>div")
       nameOfPaperback = (By.CSS_SELECTOR, "div.fixed_wrapper>div>a")
       bannerHome = (By.CSS_SELECTOR, "#banner_slides>div")
@@ -113,11 +113,6 @@ class MyAccountPage():
     def seleccionar_ContactUs_Option(self):
         self.driver.find_element(*MyAccountPageLocators.link_ContactUs).click()
 
-
-    def seleccionar_Producto_Makeup(self):
-        hover = ActionChains(self.driver).move_to_element(self.driver.find_element(*MyAccountPageLocators.hair_care_btn))
-        hover.perform()
-        self.driver.find_element(*MyAccountPageLocators.shampoo_option).click()
 
     def select_HairCare_Shampoo(self):
         hover = ActionChains(self.driver).move_to_element(self.driver.find_element(*MyAccountPageLocators.hair_care_btn))

@@ -5,7 +5,6 @@ from pytest_bdd import scenarios, given, when, then
 from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
-import HtmlTestRunner
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
@@ -51,10 +50,4 @@ def step_Not_Fill_Mandatory_Fields_Form(browser):
 def step_Show_Message():
    print("A new account could not be created, as the mandatory fields are all empty")
    print("All alert messages have been displayed, for empty mandatory fields")
-
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-
 

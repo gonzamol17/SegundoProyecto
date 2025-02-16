@@ -1,17 +1,13 @@
-import unittest
-from pytest_bdd import scenarios, parsers, given, when, then, scenario
+import pytest
+from pytest_bdd import scenarios, parsers, given, when, then
 from colorama import Fore, Back, Style
 import time
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.ProductPage import ProductPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
-
-
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 
 scenarios('../features/Find_Product.feature')
 
@@ -29,13 +25,11 @@ def step_Go_Login_Page_of_Automation_Test_Store(browser):
     logpa.do_Login("gonza_mol", "Chicharito10")
 
 
-
 @when(parsers.parse('I type the "{product}" to search in the search engine, and I execute the search with glass'))
 def step_Search_Product_With_Glass(browser, product):
     my = MyAccountPage(browser)
     my.seleccionar_Búsqueda(product)
     my.ejecutar_Búsqueda_Glass()
-
 
 
 @when(parsers.parse('I type the "{miel}" to search in the search engine, and I execute the search with Enter keys'))
@@ -57,7 +51,6 @@ def step_Verify_Product_French(browser, pro):
         print(Fore.BLUE +"No se ha encontrado un título que contenga la palabra buscada")
 
 
-
 @then(parsers.parse('I dont get product "{miel}" and verify that it is the desired product'))
 def step_Verify_Product_Miel(browser, miel):
     pp = ProductPage(browser)
@@ -65,12 +58,5 @@ def step_Verify_Product_Miel(browser, miel):
     name = pp.verify_Title_Of_Product_Not_Fund()
     assert name == 'There is no product that matches the search criteria.'
     print(Fore.BLUE + "El producto buscado no se ha encontrado, en la página, mostrando el siguiente mensaje \n" + name)
-
-
-
-
-if __name__ == '__main__':
-        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-            output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
 
 

@@ -2,10 +2,6 @@ import time
 import unittest
 from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
-
-
-
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
@@ -53,10 +49,4 @@ def step_CaptureTitleAndUrlAndCloseTabs(long, browser):
     print("La url de la tab " + str(aux) + " es: " + browser.current_url)
     assert browser.current_url == "https://automationteststore.com/"
     time.sleep(2)
-
-
-
-if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-        output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
 

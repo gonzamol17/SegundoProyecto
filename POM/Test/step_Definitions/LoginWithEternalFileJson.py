@@ -1,4 +1,6 @@
 import unittest
+from pathlib import Path
+
 from selenium import webdriver
 import unittest
 import sys
@@ -12,16 +14,20 @@ import warnings
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
+from selenium.webdriver.chrome.service import Service
+
 
 class LoginWithExternalFileJson(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        warnings.simplefilter('ignore', ResourceWarning)
-        cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
+        current_directory = Path(__file__).parent.parent
+        driver_path = current_directory.parent.parent / "Drivers" / "chromedriver.exe"
+        service = Service(executable_path=str(driver_path))
+        cls.driver = webdriver.Chrome(service=service)
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
+
 
     def test_LoginUsingJsonFile(self):
         driver = self.driver
@@ -33,7 +39,11 @@ class LoginWithExternalFileJson(unittest.TestCase):
         time.sleep(2)
         my = MyAccountPage(driver)
 
-        file = open("/Datos/Login.json", "r")
+        currentLoginJson_directory = Path(__file__).parent.parent
+        json_file_path = currentLoginJson_directory.parent.parent / "Datos" / "Login.json"
+
+        #file = open("/Datos/Login.json", "r")
+        file = open(json_file_path, "r")
         jsondata = file.read()
         obj = json.loads(jsondata)
         list = obj['users']
@@ -49,20 +59,9 @@ class LoginWithExternalFileJson(unittest.TestCase):
             lp.click_Go_Login()
             time.sleep(2)
 
-
-
-
-
-
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
         cls.driver.quit()
         print("Test Completed")
-
-
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
 

@@ -5,14 +5,12 @@ import time
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 
 scenarios('../features/Show_Footer_Elements.feature')
-
 
 
 @given("That I am logged in, and i want to count and display all elements of the page footer")
@@ -48,7 +46,3 @@ def step_Count_Footer_Element(browser):
         else:
             print(idx, ele_foo.text[0:10])
 
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

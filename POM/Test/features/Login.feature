@@ -15,6 +15,6 @@ Feature: Login the Automation Test Store
         | gonza_mol | Chicharito10 | Estoy dentro de la página de My account           |
         | sergito   | Cachavacha20 | Estoy dentro de la página de My account           |
         | pablo     | Charrua30    | Estoy dentro de la página de My account           |
-        |           | Charrua30    | Error al no ingresar nombre de usuario            |
-        | pablo     |              | Error al no ingresar una contraseña               |
+        |  " "      | Charrua30    | Error al no ingresar nombre de usuario            |
+        | pablo     |  " "         | Error al no ingresar una contraseña               |
         | pablos    | Charrua30    | Error al ingresar usuario o contraseña incorrecta |

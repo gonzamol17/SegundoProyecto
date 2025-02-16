@@ -7,15 +7,12 @@ from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 
 scenarios('../features/Verify_SwitchBetweenTwoWindows.feature')
-
 
 
 @given("I am on login in the Automation test store")
@@ -66,10 +63,3 @@ def step_GoThePreviousWindow(browser):
     print("La url de la ventana de Test Automation es: " + browser.current_url)
     print("El nombre de la Tab de la ventana de Test Automation es: " + browser.title)
     assert browser.title == "My Account"
-
-
-
-if __name__ == '__main__':
-        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-            output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-

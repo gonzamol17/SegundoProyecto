@@ -9,11 +9,10 @@ from POM.Pages.LipsPage import LipsPage
 from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.WishListPage import WishListPage
-import HtmlTestRunner
-
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+
 scenarios('../features/Verify_MyWishList.feature')
 
 @given("I am on the Automation test store logged in")
@@ -51,7 +50,7 @@ def step_AddProduct(browser):
         pp.Add_Wish_List()
 
     time.sleep(3)
-    pp.Add_Wish_List()
+    #pp.Add_Wish_List()
     time.sleep(5)
 
 @then("I enter on My Wish List section, and verify that the product is added")
@@ -63,7 +62,3 @@ def step_VerifyMyWishList(browser):
     wl = WishListPage(browser)
     assert product == wl.verify_product_added()
     print(Fore.GREEN+"El producto seleccionado "+product+" coincide con el de Mi lista de deseos  "+wl.verify_product_added())
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-

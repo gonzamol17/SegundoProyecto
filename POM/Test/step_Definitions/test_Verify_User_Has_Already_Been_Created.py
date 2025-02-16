@@ -5,9 +5,6 @@ from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 
-import HtmlTestRunner
-
-
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
@@ -32,9 +29,9 @@ def step_Go_Login_Page_of_Automation_Test_Store(browser):
 def step_Complete_Data_With_Already_exist(browser):
     account = CreateUserPage(browser)
     time.sleep(2)
-    account.complete_All_Field_For_New_Account("Gonzalo", "Molina", "gonzalo.molina@darwoft.com",
-                                               "Sol de Mayo 550", "Cordoba", "5000", "gonza_mol", "Chicharito10",
-                                               "Chicharito10")
+    account.complete_All_Field_For_New_Account("Gonzalou", "Molinau", "gonzalo.molina6@darwoft.com",
+                                               "Sol de Mayo 550", "Cordoba", "5000", "gonza_mol", "Chicharito20",
+                                               "Chicharito20")
 
     time.sleep(2)
     account.create_Country("Argentina")
@@ -52,9 +49,3 @@ def step_Complete_Data_With_Already_exist(browser):
 @then("The system does not have to create that existing user again, and it has to inform me that already exists")
 def step_Message():
     print("The user could not be created, because it already exists in the system")
-
-
-
-
-if __name__ == '__main__':
-     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
