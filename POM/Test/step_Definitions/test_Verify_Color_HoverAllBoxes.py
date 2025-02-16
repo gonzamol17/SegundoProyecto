@@ -7,15 +7,12 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 
 scenarios('../features/Verify_Color_Hover_AllBoxes.feature')
 
 
 @given("I am logged on the Automation page store")
 def step_LoginAutomationPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)

@@ -20,6 +20,7 @@ class LoginWithExternalFile(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+<<<<<<< HEAD
         #Esto quedó deprecado y utilicé la opción que está abajo
         # cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
         # cls.driver.implicitly_wait(10)
@@ -32,6 +33,10 @@ class LoginWithExternalFile(unittest.TestCase):
         # Inicializar el servicio de Chrome con la ruta construida
         service = Service(executable_path=str(driver_path))
         cls.driver = webdriver.Chrome(service=service)
+=======
+        cls.driver = webdriver.Chrome()
+        #cls.driver = webdriver.Chrome("/Drivers/chromedriver.exe")
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 
@@ -46,11 +51,19 @@ class LoginWithExternalFile(unittest.TestCase):
         my = MyAccountPage(driver)
 
         #Esta parte toma todas las filas y columnas del archivo excel
+<<<<<<< HEAD
         #path = "C:\\Users\\User\\PycharmProjects\\SegundoProyecto\\Datos\\Users.xlsx"
 
         # Estas dos lineas reemplazan la anterior para obtener el path relativo del archivo excel
         userExcel_directory = Path(__file__).parent.parent
         excelUser_file_path = userExcel_directory.parent.parent / "Datos" / "Users.xlsx"
+=======
+        path = "C:\\Users\\GonzaloJavierMolinaC\\OneDrive - Capitole Consulting\\Escritorio\\Automation Practice\\pythonprojects\\SegundoProyecto\\Datos\\Users.xlsx"
+        inputWorkbook = xlrd.open_workbook(path)
+        inputWorksheet = inputWorkbook.sheet_by_index(0)
+        row = inputWorksheet.nrows
+        col = inputWorksheet.ncols
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 
 
@@ -95,3 +108,11 @@ class LoginWithExternalFile(unittest.TestCase):
         cls.driver.close()
         cls.driver.quit()
         print("Test Completed")
+<<<<<<< HEAD
+=======
+
+
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

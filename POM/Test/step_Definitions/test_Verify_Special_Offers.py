@@ -3,17 +3,26 @@ import unittest
 from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
+<<<<<<< HEAD
 from POM.Pages.SpecialOffersPage import SpecialOffersPage
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
+=======
+from POM.Pages.LoginPage import LoginPage
+from POM.Pages.MyAccountPage import MyAccountPage
+from POM.Pages.ShoppingCartPage import ShoppingCartPage
+from POM.Pages.ShampooPage import ShampooPage
+from POM.Pages.SpecialOffersPage import SpecialOffersPage
+
+
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 scenarios('../features/Verify_Special_Offers.feature')
 
 
 @given("I am on Automation test page")
 def step_GoAutomationTestPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
 
 

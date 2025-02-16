@@ -1,21 +1,28 @@
 import time
+<<<<<<< HEAD
 import pytest
 
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 from pytest_bdd import scenarios, given, when, then
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 
 scenarios('../features/CreateUser.feature')
 
+
 @given("I am on the Automation test store page and I select the option to create a new account")
 def step_Go_Login_Page_of_Automation_Test_Store(browser):
-    browser.get(AUTOMATION_PAGE)
+    #browser.get(AUTOMATION_PAGE)
     lp = LandingPage(browser)
     lp.click_Go_Login()
     time.sleep(2)
@@ -31,9 +38,9 @@ def step_Go_Login_Page_of_Automation_Test_Store(browser):
 def step_Fill_All_Fields_Form(browser):
     account = CreateUserPage(browser)
     time.sleep(2)
-    account.complete_All_Field_For_New_Account("Lukagesss", "Cornejosssa", "Lukageddd.Cornejosssdd@darwoft.com",
-                                               "Sol de Mayo 550", "Cordoba", "5000", "Lukagessdd_Cornejosssss", "River10",
-                                               "River10")
+    account.complete_All_Field_For_New_Account("Lukagesssa", "Cornejosssas", "Lukageddd.Cornejosssdde@darwoft.com",
+                                               "Sol de Mayo 550", "Cordoba", "5000", "Lukagessdd_Cornejossssse", "River101",
+                                               "River101")
     time.sleep(2)
     account.create_Country("Argentina")
     time.sleep(2)
@@ -53,3 +60,10 @@ def step_Login_MyAccount_With_New_User(browser):
     #print(x)
     assert x == 'MY ACCOUNT'
     print("Estoy en la página de My account, se ha creado exitosamente la cuenta del nuevo usuario")
+<<<<<<< HEAD
+=======
+
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

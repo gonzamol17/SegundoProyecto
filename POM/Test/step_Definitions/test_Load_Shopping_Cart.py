@@ -1,18 +1,21 @@
 import time
 import unittest
+import pytest
 from pytest_bdd import scenarios, given, when, then
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.SkinCarePage import SkinCarePage
+<<<<<<< HEAD
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 scenarios('../features/Load_shopping_Cart.feature')
 
 @given("I am on the Automation test store page logged in")
 def step_Login_to_the_Page(browser):
-    browser.get(AUTOMATION_PAGE)
     lp = LandingPage(browser)
     skp = SkinCarePage(browser)
     lp.click_Go_Login()
@@ -43,3 +46,11 @@ def step_impl():
 @then("I see those products in my shopping cart")
 def step_impl():
     print("Se agregaron productos al carrito de compras del usuario gonza_mol")
+<<<<<<< HEAD
+=======
+
+
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

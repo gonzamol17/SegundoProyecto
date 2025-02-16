@@ -10,9 +10,12 @@ from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.CheckoutConfirmationPage import CheckoutConfirmationPage
 from POM.Pages.CheckoutStatus import CheckoutStatus
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 
 scenarios('../features/Make_Purchase.feature')
@@ -20,7 +23,6 @@ scenarios('../features/Make_Purchase.feature')
 
 @given("I am on the Automation test store page logged in, and i have my shopping cart without products")
 def step_Login_to_the_Page(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     #ir a login page
     lp = LandingPage(browser)
@@ -35,18 +37,19 @@ def step_Login_to_the_Page(browser):
     my = MyAccountPage(browser)
 
     my.seleccionar_Cart_Option()
+    time.sleep(2)
 
     try:
         assert scp.check_Label_Without_Element() == 'Your shopping cart is empty!\nContinue'
-        my.seleccionar_Producto_Makeup()
+        my.seleccionar_Producto_Makeup1()
     except:
         #scp.clean_Shopping_Cart()
         print(Fore.RED + "La cantidad de Productos a eliminar del carrito es: " + str(scp.contar_Elementos_Eliminados()))
         scp.clean_List_Of_Products()
         time.sleep(2)
         scp.click_Btn_Continue()
-        time.sleep(2)
-        my.seleccionar_Producto_Makeup()
+        time.sleep(3)
+        my.seleccionar_Producto_Makeup1()
 
 
 @when("I select the type of product, the product and its characteristics, and confirm the order")
@@ -144,3 +147,12 @@ def step_Verify_Order_Processed(browser):
     print("\n")
     print(Fore.GREEN + "Estas en la página Home")
     time.sleep(2)
+<<<<<<< HEAD
+=======
+
+
+#
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

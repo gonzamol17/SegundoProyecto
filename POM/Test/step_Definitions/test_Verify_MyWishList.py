@@ -9,15 +9,19 @@ from POM.Pages.LipsPage import LipsPage
 from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.WishListPage import WishListPage
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
+=======
+
+
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 scenarios('../features/Verify_MyWishList.feature')
 
 @given("I am on the Automation test store logged in")
 def step_Login(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)
@@ -32,7 +36,7 @@ def step_Login(browser):
 def step_AddProduct(browser):
     scp = ShoppingCartPage(browser)
     my = MyAccountPage(browser)
-    my.seleccionar_Producto_Makeup()
+    my.seleccionar_Producto_Makeup1()
     time.sleep(2)
     lip = LipsPage(browser)
     time.sleep(4)
@@ -62,3 +66,10 @@ def step_VerifyMyWishList(browser):
     wl = WishListPage(browser)
     assert product == wl.verify_product_added()
     print(Fore.GREEN+"El producto seleccionado "+product+" coincide con el de Mi lista de deseos  "+wl.verify_product_added())
+<<<<<<< HEAD
+=======
+
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

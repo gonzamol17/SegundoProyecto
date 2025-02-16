@@ -2,8 +2,11 @@ import time
 import unittest
 from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from POM.Pages.MyAccountPage import MyAccountPage
+<<<<<<< HEAD
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 
 scenarios('../features/Verify_SwitchBetweenThreeWindows.feature')
@@ -11,7 +14,6 @@ scenarios('../features/Verify_SwitchBetweenThreeWindows.feature')
 
 @given("I am in the Automation test store")
 def step_GoAutomationTestPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
 
 @when("I click on two components of the web and two new tabs open", target_fixture='long')
@@ -50,3 +52,12 @@ def step_CaptureTitleAndUrlAndCloseTabs(long, browser):
     assert browser.current_url == "https://automationteststore.com/"
     time.sleep(2)
 
+<<<<<<< HEAD
+=======
+#
+#
+# if __name__ == '__main__':
+#     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+#         output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+#
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

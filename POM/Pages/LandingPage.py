@@ -12,7 +12,8 @@ class LandingPageLocators():
     forgotLogin = (By.CSS_SELECTOR, "#loginFrm>fieldset>a:nth-child(4)")
     specialOffersLink = (By.CSS_SELECTOR, "#main_menu_top>li:nth-child(1)>a>span")
 
-class LandingPage():
+
+class LandingPage:
 
     def __init__(self, driver):
         self.driver = driver

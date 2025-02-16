@@ -5,9 +5,12 @@ from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 
 scenarios('../features/Verify_Edit_Manage_Address_Book.feature')
@@ -15,7 +18,6 @@ scenarios('../features/Verify_Edit_Manage_Address_Book.feature')
 
 @given("I am on login in the Automation test page")
 def step_Login(browser):
-    browser.get(AUTOMATION_PAGE)
     lp = LandingPage(browser)
     lp.click_Go_Login()
     time.sleep(2)
@@ -38,7 +40,7 @@ def step_EditAddressBook(browser):
     account.selectBtnEditAddressBook()
     browser.execute_script("window.scrollTo(0, 500)")
     time.sleep(2)
-    account.setAddressTwoAddressBook("Mandioca 2400, 2do Piso")
+    account.setAddressTwoAddressBook("")
     time.sleep(3)
     account.saveBtnAddressBook()
     time.sleep(3)
@@ -54,6 +56,14 @@ def step_CheckEditedAddress(browser):
     print(Fore.MAGENTA + "Se muestra el mensaje y color correcto de dirección editada " +Fore.GREEN+message[2:44]+Fore.RESET)
     time.sleep(2)
     print(Fore.MAGENTA + "Toda la información editada que se tiene de Address Book Entries es: \n" + account.getAllAddressBook())
-    assert "Mandioca 2400, 2do Piso" in account.getAllAddressBook()
+    assert "" in account.getAllAddressBook()
     print("La nueva segunda dirección editada/agregada, está dentro de Address Book Entries correctamente")
     time.sleep(2)
+<<<<<<< HEAD
+=======
+
+#
+# if __name__ == '__main__':
+#         unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+#             output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

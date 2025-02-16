@@ -5,20 +5,33 @@ from colorama import Fore, Back, Style
 
 from POM.Pages.ForgotLoginPage import ForgotLoginPage
 from POM.Pages.LandingPage import LandingPage
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
+=======
+from POM.Pages.LoginPage import LoginPage
+from POM.Pages.MyAccountPage import MyAccountPage
+from POM.Pages.ShoppingCartPage import ShoppingCartPage
+from POM.Pages.ShampooPage import ShampooPage
+
+
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 scenarios('../features/Verify_Forgot_Login.feature')
 
 @given("I try to enter the Automation test store page, and I don't remember the password")
 def step_GoLoginPage(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     lp = LandingPage(browser)
     lp.click_Go_Login()
 
+<<<<<<< HEAD
 @when(parsers.parse('I select the forgot password option, and lastname "{lastname}" and email "{email}"'))
+=======
+
+@when(parsers.parse('I select the forgot password option, and lastname {lastname} and email {email}'))
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 def step_ForgotLoginPageAndComplete(browser, lastname, email):
     lp = LandingPage(browser)
     flp = ForgotLoginPage(browser)
@@ -27,7 +40,12 @@ def step_ForgotLoginPageAndComplete(browser, lastname, email):
     flp.set_Email(email)
     flp.selectBtnContinue()
 
+<<<<<<< HEAD
 @then(parsers.parse('I get a message with result "{message}" for password recovery'))
+=======
+
+@then(parsers.parse('I get a message with result {message} for password recovery'))
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 def step_GetResults(browser):
     flp = ForgotLoginPage(browser)
     try:

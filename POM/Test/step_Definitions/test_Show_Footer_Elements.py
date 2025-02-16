@@ -1,5 +1,5 @@
 import unittest
-from pytest_bdd import scenarios, parsers, given, when, then, scenario
+from pytest_bdd import scenarios, parsers, given, when, then
 from colorama import Fore, Back, Style
 import time
 from POM.Pages.LandingPage import LandingPage
@@ -7,15 +7,10 @@ from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
-
-scenarios('../features/Show_Footer_Elements.feature')
-
+scenarios('../features/Show_Footer_Elements.feature', '')
 
 @given("That I am logged in, and i want to count and display all elements of the page footer")
 def step_logged(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)
@@ -46,3 +41,10 @@ def step_Count_Footer_Element(browser):
         else:
             print(idx, ele_foo.text[0:10])
 
+<<<<<<< HEAD
+=======
+
+#
+# if __name__ == '__main__':
+#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

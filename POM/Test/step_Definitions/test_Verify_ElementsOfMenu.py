@@ -5,16 +5,18 @@ from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
+<<<<<<< HEAD
 
 
 AUTOMATION_PAGE = 'https://automationteststore.com/'
 
+=======
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 
 scenarios('../features/Verify_ElementsOfMenu.feature')
 
 @given("I am on the Automation test store page login")
 def step_login(browser):
-    browser.get(AUTOMATION_PAGE)
     time.sleep(2)
     # ir a login page
     lp = LandingPage(browser)
@@ -44,3 +46,11 @@ def step_ShowElementsMenu(browser):
         assert menu.text == items[aux]
         aux = aux + 1
         print(Style.BRIGHT + Fore.MAGENTA + str(idx), menu.text)
+<<<<<<< HEAD
+=======
+
+    # if __name__ == '__main__':
+    #      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+    #             output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
+    #
+>>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

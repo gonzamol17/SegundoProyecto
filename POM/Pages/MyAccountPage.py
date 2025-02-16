@@ -69,9 +69,11 @@ class MyAccountPage():
     def verificar_Created_Account_Success(self):
         return self.driver.find_element(*MyAccountPageLocators.text_account_created).text
 
-    def seleccionar_Producto_Makeup(self):
+    def seleccionar_Producto_Makeup1(self):
+        time.sleep(2)
         hover = ActionChains(self.driver).move_to_element(self.driver.find_element(*MyAccountPageLocators.makeup_btn))
         hover.perform()
+        time.sleep(1)
         self.driver.find_element(*MyAccountPageLocators.lips_option).click()
 
 

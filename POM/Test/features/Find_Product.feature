@@ -11,7 +11,8 @@ Feature: Execute a search for a product, through the search engine
     When I type the "French" to search in the search engine, and I execute the search with glass
     Then I get a product "French" and verify that it is the desired product
 
+
 @Regression
-   Scenario: Search for a product, through the search engine with Enter keys
-    When I type the "miel" to search in the search engine, and I execute the search with Enter keys
-    Then I dont get product "miel" and verify that it is the desired product
+  Scenario: Search for a product, through the search engine with Enter keys
+  When I type the "miel" to search in the search engine, and I execute the search with Enter keys
+  Then I dont get product "miel" and verify that it is the desired product
