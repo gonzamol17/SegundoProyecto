@@ -1,12 +1,9 @@
 import time
 from colorama import Fore
 from pytest_bdd import scenarios, given, when, then
-
 from POM.Pages.MyAccountPage import MyAccountPage
 
-
 scenarios('../features/Verify_BannersHome.feature')
-
 
 @given("I am on the Automation page store")
 def step_GoAutomationPage(browser):

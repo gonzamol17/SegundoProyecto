@@ -8,11 +8,6 @@ from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.ShampooPage import ShampooPage
 
-<<<<<<< HEAD
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
-=======
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 scenarios('../features/Verify_Item_Box.feature')
 
 @given("I am on the Automation test logged")
@@ -25,7 +20,6 @@ def step_login(browser):
      time.sleep(2)
      # Esto permite el logueo
      logpa.do_Login("gonza_mol", "Chicharito10")
-
 
 
 @when("I change the currency and i select two products with that currency")
@@ -78,11 +72,4 @@ def step_VerifyItemBox(browser):
      print(Fore.GREEN + "Se encontraron dos productos en el box de Items")
      print(Fore.GREEN + "Los dos productos encontrados en el box de Item, son los que se seleccionaron anteriormente")
      print(Fore.GREEN + "y ambos precios están en moneda Euro")
-<<<<<<< HEAD
-=======
 
-# if __name__ == '__main__':
-#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-#
-#
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

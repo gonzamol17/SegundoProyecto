@@ -6,10 +6,7 @@ from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShampooPage import ShampooPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 scenarios('../features/Verify_Review.feature')
-
 
 @given("I am on login in the Automation test")
 def step_login(browser):

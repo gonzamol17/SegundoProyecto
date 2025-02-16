@@ -1,5 +1,4 @@
 import time
-import unittest
 from pytest_bdd import scenarios, given, when, then
 from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
@@ -10,16 +9,8 @@ from POM.Pages.ProductPage import ProductPage
 from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.CheckoutConfirmationPage import CheckoutConfirmationPage
 from POM.Pages.CheckoutStatus import CheckoutStatus
-<<<<<<< HEAD
-
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-=======
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
-
 
 scenarios('../features/Make_Purchase.feature')
-
 
 @given("I am on the Automation test store page logged in, and i have my shopping cart without products")
 def step_Login_to_the_Page(browser):
@@ -147,12 +138,4 @@ def step_Verify_Order_Processed(browser):
     print("\n")
     print(Fore.GREEN + "Estas en la página Home")
     time.sleep(2)
-<<<<<<< HEAD
-=======
 
-
-#
-#
-# if __name__ == '__main__':
-#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

@@ -6,11 +6,8 @@ from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.SkinCarePage import SkinCarePage
-<<<<<<< HEAD
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-=======
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
+#AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 scenarios('../features/Load_shopping_Cart.feature')
 
@@ -46,11 +43,4 @@ def step_impl():
 @then("I see those products in my shopping cart")
 def step_impl():
     print("Se agregaron productos al carrito de compras del usuario gonza_mol")
-<<<<<<< HEAD
-=======
 
-
-#
-# if __name__ == '__main__':
-#      unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

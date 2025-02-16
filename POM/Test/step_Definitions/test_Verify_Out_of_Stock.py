@@ -6,10 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ProductPage import ProductPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 scenarios('../features/Verify_Out_of_Stock.feature')
-
 
 @given("I am on the Automation test store")
 def step_GoAutomationTestStore(browser):

@@ -10,10 +10,7 @@ from POM.Pages.ShoppingCartPage import ShoppingCartPage
 from POM.Pages.ShampooPage import ShampooPage
 from POM.Pages.SpecialOffersPage import SpecialOffersPage
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 scenarios('../features/Verify_Special_Offers.feature')
-
 
 @given("I am on Automation test page")
 def step_GoAutomationTestPage(browser):

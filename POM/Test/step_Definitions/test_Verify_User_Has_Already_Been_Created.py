@@ -5,10 +5,6 @@ from POM.Pages.CreateUserPage import CreateUserPage
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
-
 scenarios('../features/Verify_User_Has_Already_Been_Created.feature')
 
 @given("I am on the Automation test store page and I select the option to create a new account")
@@ -42,7 +38,7 @@ def step_Complete_Data_With_Already_exist(browser):
     time.sleep(2)
     x = account.show_Existing_User_Message()
     print(x)
-    assert x == '×\nError: E-Mail Address is already registered!'
+    assert x == '×\nThis login name is not available. Try different login name!'
     print("Error al querer crear una cuenta de un usuario ya existente")
 
 

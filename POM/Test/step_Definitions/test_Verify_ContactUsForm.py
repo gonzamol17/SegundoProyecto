@@ -7,9 +7,6 @@ from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ContactUsPage import ContactUsPage
 
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 scenarios('../features/Verify_ContactUsForm.feature')
 
 @given("I am on the Automation test logged in")
@@ -22,7 +19,6 @@ def step_Login(browser):
     time.sleep(2)
     # Esto permite el logueo
     logpa.do_Login("gonza_mol", "Chicharito10")
-
 
 
 @when("I select the Contact Us option in the footer of the page")
@@ -80,7 +76,3 @@ def step_VerifyErrorValidation(browser):
     print(Fore.RED + "\n" + email)
     print(Fore.RED + "\n" + enquiry)
     print("El formulario no ha podido ser enviado")
-
-    # if __name__ == '__main__':
-    #     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-    #         output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)

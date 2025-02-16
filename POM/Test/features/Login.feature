@@ -6,7 +6,7 @@ Feature: Login the Automation Test Store
 @Regression
   Scenario Outline: login in Automation Test Store
     Given I am on the Automation test store page
-    When enter a value in <username> and <password>
+    When enter a value in "<username>" and "<password>"
     Then I check if I can enter my account and "<message>"
 
 

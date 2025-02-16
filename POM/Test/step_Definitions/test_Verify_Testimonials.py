@@ -3,11 +3,7 @@ from pytest_bdd import scenarios, given, when, then
 from colorama import Fore, Back, Style
 from POM.Pages.MyAccountPage import MyAccountPage
 
-
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-
 scenarios('../features/Verify_Testimonials.feature')
-
 
 @given("I am on the Automation test")
 def step_GoAutomationStore(browser):

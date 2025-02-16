@@ -6,8 +6,8 @@ Feature: Forgot Login in the Automation Test Store
 @Regression
   Scenario Outline: Forgot login in Automation Test Store
     Given I try to enter the Automation test store page, and I don't remember the password
-    When I select the forgot password option, and lastname <lastname> and email <email>
-    Then I get a message with result <message> for password recovery
+    When I select the forgot password option, and lastname "<lastname>" and email "<email>"
+    Then I get a message with result "<message>" for password recovery
 
 
       Examples: users

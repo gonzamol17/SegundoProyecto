@@ -1,28 +1,15 @@
-<<<<<<< HEAD
-=======
-import unittest
-
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
 import pytest
 from pytest_bdd import scenarios, parsers, given, when, then
 from colorama import Fore, Back, Style
 import time
-
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
-
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.ProductPage import ProductPage
 from POM.Pages.MyAccountPage import MyAccountPage
-<<<<<<< HEAD
 
-AUTOMATION_PAGE = 'https://automationteststore.com/'
-=======
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b
+#AUTOMATION_PAGE = 'https://automationteststore.com/'
 
 scenarios('../features/Find_Product.feature')
-
 
 @given('I am on login in the Automation test store page, and I want to search for a certain product')
 def step_Go_Login_Page_of_Automation_Test_Store(browser):
@@ -71,14 +58,3 @@ def step_Verify_Product_Miel(browser, miel):
     assert name == 'There is no product that matches the search criteria.'
     print(Fore.BLUE + "El producto buscado no se ha encontrado, en la página, mostrando el siguiente mensaje \n" + name)
 
-
-<<<<<<< HEAD
-=======
-
-#
-# if __name__ == '__main__':
-#         unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
-#             output='C:\\Users\\admin\\PycharmProjects\\SegundoProyecto\\Reports'), verbosity=2)
-#
-#
->>>>>>> 2fa78c339105440924a5bb0d77d85a97438def7b

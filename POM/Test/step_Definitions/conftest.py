@@ -1,24 +1,3 @@
-import time
-#
-# import json
-# import pytest
-# from pytest_bdd import given
-# from selenium import webdriver
-# import selenium.webdriver
-#
-# #constants
-# #AUTOMATION_PAGE = 'https://automationteststore.com/'
-#
-#
-# @pytest.fixture()
-# def browser(request):
-#     b = webdriver.Chrome(executable_path="..\\Drivers\\chromedriver.exe")
-#     b.implicitly_wait(10)
-#     b.maximize_window()
-#     yield b
-#     b.quit()
-import json
-import warnings
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome import service
@@ -95,26 +74,31 @@ AUTOMATION_PAGE = 'https://automationteststore.com/'
 #     yield driver
 #     driver.quit()
 
-
-class ChromeDriverManager:
-    pass
-
+# @pytest.fixture()
+# def browser():
+#
+#
+#     # Inicializamos el driver de Chrome usando el servicio configurado
+#     driver = webdriver.Chrome(service=service)
+#
+#     # Abrimos la página de automatización y configuramos algunas opciones
+#     driver.get(AUTOMATION_PAGE)
+#     driver.implicitly_wait(10)
+#     driver.maximize_window()
+#
+#     # Pasamos el driver a la prueba
+#     yield driver
+#
+#     # Después de que termine la prueba, cerramos el navegador
+#     driver.quit()
 
 @pytest.fixture()
-def browser():
-    # Usamos webdriver_manager para administrar el driver de Chrome de manera automática
-    service = Service(ChromeDriverManager().install())
-
-    # Inicializamos el driver de Chrome usando el servicio configurado
+def browser(request):
+    service = Service(executable_path="C:\\Users\\User\\PycharmProjects\\SegundoProyecto\\Drivers\\chromedriver.exe")
     driver = webdriver.Chrome(service=service)
-
-    # Abrimos la página de automatización y configuramos algunas opciones
+    #b = webdriver.Chrome("..\\Drivers\\chromedriver.exe")
     driver.get(AUTOMATION_PAGE)
     driver.implicitly_wait(10)
     driver.maximize_window()
-
-    # Pasamos el driver a la prueba
     yield driver
-
-    # Después de que termine la prueba, cerramos el navegador
     driver.quit()

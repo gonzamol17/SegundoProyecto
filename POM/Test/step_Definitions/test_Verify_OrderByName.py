@@ -6,7 +6,6 @@ from POM.Pages.MyAccountPage import MyAccountPage
 
 scenarios('../features/Verify_OrderByName.feature')
 
-
 @given("I am on the Automation page")
 def step_GoAutomationPage(browser):
     time.sleep(2)
