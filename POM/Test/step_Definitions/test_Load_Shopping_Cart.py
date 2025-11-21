@@ -12,17 +12,17 @@ from POM.Pages.SkinCarePage import SkinCarePage
 scenarios('../features/Load_shopping_Cart.feature')
 
 @given("I am on the Automation test store page logged in")
-def step_Login_to_the_Page(browser):
-    lp = LandingPage(browser)
-    skp = SkinCarePage(browser)
+def step_Login_to_the_Page(test_setup):
+    lp = LandingPage(test_setup)
+    skp = SkinCarePage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     logpa.do_Login("gonza_mol", "Chicharito10")
-    my = MyAccountPage(browser)
+    my = MyAccountPage(test_setup)
     time.sleep(2)
     my.seleccionar_Producto_SkinCare()
     time.sleep(4)
-    browser.execute_script("window.scrollTo(0, 800)")
+    test_setup.execute_script("window.scrollTo(0, 800)")
     time.sleep(4)
     skp.add_Product_Antiage()
     time.sleep(2)

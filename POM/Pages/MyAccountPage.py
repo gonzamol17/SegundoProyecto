@@ -42,7 +42,9 @@ class MyAccountPageLocators():
       linkLi=(By.CSS_SELECTOR, "div.block_8>div>div>a.linkedin")
       btnContribute = (By.CSS_SELECTOR, "div.pull-right.mr20.mt5>div>a>img")
       linkAbanteCard = (By.CSS_SELECTOR, "div.pull-right.align_center>a")
-      testimonials = (By.CSS_SELECTOR, "#testimonialsidebar>div>ul>li")
+      #testimonials = (By.CSS_SELECTOR, "#testimonialsidebar>div>ul>li")
+      testimonials = (By.CSS_SELECTOR, "block_frame_html_block_1777")
+      # block_frame_html_block_1777
       dropDownOrderByNameAZ = (By.CSS_SELECTOR, "select#sort.form-control")
       listOfPaperback = (By.CSS_SELECTOR, "div.thumbnails.grid.row.list-inline>div")
       nameOfPaperback = (By.CSS_SELECTOR, "div.fixed_wrapper>div>a")

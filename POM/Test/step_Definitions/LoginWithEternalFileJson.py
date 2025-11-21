@@ -14,51 +14,44 @@ from POM.Pages.MyAccountPage import MyAccountPage
 from selenium.webdriver.chrome.service import Service
 
 class LoginWithExternalFileJson(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
-
         current_directory = Path(__file__).parent.parent
         driver_path = current_directory.parent.parent / "Drivers" / "chromedriver.exe"
         service = Service(executable_path=str(driver_path))
         cls.driver = webdriver.Chrome(service=service)
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
-
+        cls.driver.get("https://automationteststore.com/")  # URL abierta aquí
 
     def test_LoginUsingJsonFile(self):
         driver = self.driver
-        driver.get("https://automationteststore.com/")
-        time.sleep(2)
         lp = LandingPage(driver)
         lp.click_Go_Login()
-        logpa = LoginPage(driver)
-        time.sleep(2)
-        my = MyAccountPage(driver)
+        login_page = LoginPage(driver)
+        my_account = MyAccountPage(driver)
 
-        currentLoginJson_directory = Path(__file__).parent.parent
-        json_file_path = currentLoginJson_directory.parent.parent / "Datos" / "Login.json"
+        # Ruta JSON correcta
+        root_dir = Path(__file__).resolve().parents[3]
+        json_path = root_dir / "Datos" / "Login.json"
 
-        #file = open("/Datos/Login.json", "r")
-        file = open(json_file_path, "r")
-        jsondata = file.read()
-        obj = json.loads(jsondata)
-        list = obj['users']
-        print(list)
-        print(len(list))
-        for i in range(len(list)):
-            username = list[i].get("user")
-            password = list[i].get("password")
-            logpa.do_Login(username, password)
-            time.sleep(4)
-            my.seleccionar_Logoff()
-            time.sleep(2)
+        with open(json_path, "r") as file:
+            data = json.load(file)
+
+        users = data.get("users", [])
+        self.assertTrue(len(users) > 0, "No users found in JSON file")
+
+        for user in users:
+            username = user.get("user")
+            password = user.get("password")
+            login_page.do_Login(username, password)
+            time.sleep(3)
+            my_account.seleccionar_Logoff()
+            time.sleep(1)
             lp.click_Go_Login()
-            time.sleep(2)
+            time.sleep(1)
 
     @classmethod
     def tearDownClass(cls):
-        cls.driver.close()
         cls.driver.quit()
         print("Test Completed")
-

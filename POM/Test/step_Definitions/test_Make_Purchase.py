@@ -13,19 +13,19 @@ from POM.Pages.CheckoutStatus import CheckoutStatus
 scenarios('../features/Make_Purchase.feature')
 
 @given("I am on the Automation test store page logged in, and i have my shopping cart without products")
-def step_Login_to_the_Page(browser):
+def step_Login_to_the_Page(test_setup):
     time.sleep(2)
     #ir a login page
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     time.sleep(2)
     #Esto permite el logueo
     logpa.do_Login("gonza_mol", "Chicharito10")
     time.sleep(2)
     #Verifico que no tenga nada en el carrito de Compras
-    scp = ShoppingCartPage(browser)
-    my = MyAccountPage(browser)
+    scp = ShoppingCartPage(test_setup)
+    my = MyAccountPage(test_setup)
 
     my.seleccionar_Cart_Option()
     time.sleep(2)
@@ -44,16 +44,16 @@ def step_Login_to_the_Page(browser):
 
 
 @when("I select the type of product, the product and its characteristics, and confirm the order")
-def step_Select_The_Product(browser):
+def step_Select_The_Product(test_setup):
     # Acá selecciono La pagina del producto(lapiz labial) para agregarlo a carrito e ir a la pagina de producto
-    scp = ShoppingCartPage(browser)
+    scp = ShoppingCartPage(test_setup)
     time.sleep(2)
-    lip = LipsPage(browser)
+    lip = LipsPage(test_setup)
     lip.add_Cart1()
     time.sleep(2)
 
     # Acá creo un objeto del  tipo de producto elegido, y selecciono el color, y la cantidad y verifico que coincido lo que pido
-    pp = ProductPage(browser)
+    pp = ProductPage(test_setup)
     pp.select_Product_Lips_Color_And_Qty("Viva Glam II", "3")
     time.sleep(2)
 
@@ -77,7 +77,7 @@ def step_Select_The_Product(browser):
     time.sleep(2)
 
     # Acá creo un objeto del tipo checkoutconfirmationpage, y antes de confirmar el pedido valido algunos labels
-    ccp = CheckoutConfirmationPage(browser)
+    ccp = CheckoutConfirmationPage(test_setup)
     # acá van todas las validaciones de label y titulos
     print("\n")
     print(Fore.LIGHTYELLOW_EX + "--------------------------------------------------------------------\n")
@@ -120,9 +120,9 @@ def step_Select_The_Product(browser):
 
 
 @then("I verify that the order was processed successfully")
-def step_Verify_Order_Processed(browser):
+def step_Verify_Order_Processed(test_setup):
     # Acá ya obtengo la confirmación exitosa del pedido
-    cs = CheckoutStatus(browser)
+    cs = CheckoutStatus(test_setup)
     time.sleep(2)
     assert cs.get_Message_Alternative() == 'You can view your order details by going to the invoice page.'
     time.sleep(2)
@@ -133,7 +133,7 @@ def step_Verify_Order_Processed(browser):
     time.sleep(2)
 
     # Acá verifico que una vez comprado el producto, vuelva a la Landing Page (homepage)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     assert lp.verificar_Nombre_Landing_Page() == 'Welcome back gonzalo'
     print("\n")
     print(Fore.GREEN + "Estas en la página Home")

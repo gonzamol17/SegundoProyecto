@@ -4,34 +4,30 @@ from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from colorama import Fore, Back, Style
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.SpecialOffersPage import SpecialOffersPage
-from POM.Pages.LoginPage import LoginPage
-from POM.Pages.MyAccountPage import MyAccountPage
-from POM.Pages.ShoppingCartPage import ShoppingCartPage
-from POM.Pages.ShampooPage import ShampooPage
-from POM.Pages.SpecialOffersPage import SpecialOffersPage
+from Utils.BaseClass import BaseClass
 
 scenarios('../features/Verify_Special_Offers.feature')
 
 @given("I am on Automation test page")
-def step_GoAutomationTestPage(browser):
+def step_GoAutomationTestPage(test_setup):
     time.sleep(2)
 
 
 @when("I select the Special link")
-def step_SelectSpecialLink(browser):
-    lp = LandingPage(browser)
+def step_SelectSpecialLink(test_setup):
+    lp = LandingPage(test_setup)
     lp.selectSpecialsOffers()
-    so = SpecialOffersPage(browser)
+    so = SpecialOffersPage(test_setup)
     numberofsales = len(so.getAllSales())
     print(Fore.YELLOW + "\nCantidad de elementos en sales es: " + str(numberofsales) + Fore.RESET)
     aux = so.getAllSales()
-    browser.execute_script("window.scrollTo(0, 500)")
+    test_setup.execute_script("window.scrollTo(0, 500)")
     time.sleep(2)
 
 
 @then("I should see the number of specials products, and if they have the Sale tag")
-def step_CountSpecialProductAndCheckTagSale(browser):
-    so = SpecialOffersPage(browser)
+def step_CountSpecialProductAndCheckTagSale(test_setup):
+    so = SpecialOffersPage(test_setup)
     aux = so.getAllSales()
     n = 1
     b = 6

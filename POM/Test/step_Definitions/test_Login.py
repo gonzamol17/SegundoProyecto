@@ -9,21 +9,21 @@ from POM.Pages.MyAccountPage import MyAccountPage
 scenarios('../features/Login.feature')
 
 @given("I am on the Automation test store page")
-def step_Go_Login_Page_of_Automation_Test_Store(browser):
+def step_Go_Login_Page_of_Automation_Test_Store(test_setup):
     time.sleep(2)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
 
 @when(parsers.parse('enter a value in "{username}" and "{password}"'))
-def step_Complete_User_Pass(browser, username, password):
-    logpa = LoginPage(browser)
+def step_Complete_User_Pass(test_setup, username, password):
+    logpa = LoginPage(test_setup)
     logpa.do_Login(username, password)
     print(Fore.BLUE+"Account of "+ username)
 
 
 @then("I can verify that I am in my account")
-def step_CheckMyAccount(browser):
-    account = MyAccountPage(browser)
+def step_CheckMyAccount(test_setup):
+    account = MyAccountPage(test_setup)
     x = account.verificar_Ingreso_Correcto2()
     print(x)
     assert x == 'MY ACCOUNT'
@@ -31,9 +31,9 @@ def step_CheckMyAccount(browser):
 
 
 @then(parsers.parse('I check if I can enter my account and "{message}"'))
-def step_verifyMyaccount(browser, message):
-    account = MyAccountPage(browser)
-    logpa = LoginPage(browser)
+def step_verifyMyaccount(test_setup, message):
+    account = MyAccountPage(test_setup)
+    logpa = LoginPage(test_setup)
     # x = account.verificar_Ingreso_Correcto2()
     #print(x)
     #assert x == 'MY ACCOUNT'

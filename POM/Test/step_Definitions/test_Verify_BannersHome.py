@@ -6,12 +6,12 @@ from POM.Pages.MyAccountPage import MyAccountPage
 scenarios('../features/Verify_BannersHome.feature')
 
 @given("I am on the Automation page store")
-def step_GoAutomationPage(browser):
+def step_GoAutomationPage(test_setup):
     time.sleep(2)
 
 @when("I stand on the banners section and check each one")
-def step_VerifyBannersHome(browser):
-    account = MyAccountPage(browser)
+def step_VerifyBannersHome(test_setup):
+    account = MyAccountPage(test_setup)
     print(Fore.GREEN + "\ncantidad de banners " + str(len(account.getBannersHome())) + Fore.RESET)
     tit1 = account.getTitleBanner1()
     tit2 = account.getTitleBanner2()
@@ -44,7 +44,7 @@ def step_VerifyBannersHome(browser):
 
 
 @then("I can verify that the banners shown are correct")
-def step_ShowCorrectMessage(browser):
+def step_ShowCorrectMessage(test_setup):
     print(Fore.GREEN +"Se están mostrando los banners correctos"+Fore.RESET)
 
 

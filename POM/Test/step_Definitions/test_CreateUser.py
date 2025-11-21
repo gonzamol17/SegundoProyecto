@@ -10,12 +10,12 @@ from POM.Pages.LoginPage import LoginPage
 scenarios('../features/CreateUser.feature')
 
 @given("I am on the Automation test store page and I select the option to create a new account")
-def step_Go_Login_Page_of_Automation_Test_Store(browser):
+def step_Go_Login_Page_of_Automation_Test_Store(test_setup):
     #browser.get(AUTOMATION_PAGE)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
     time.sleep(2)
-    lop = LoginPage(browser)
+    lop = LoginPage(test_setup)
     #check = lop.verify_IsChecked()
     #browser.assertTrue(check, "Está la opción Create Account tildada")
     time.sleep(2)
@@ -24,11 +24,11 @@ def step_Go_Login_Page_of_Automation_Test_Store(browser):
 
 
 @when("I fill in all the fields of the form and I confirm that data")
-def step_Fill_All_Fields_Form(browser):
-    account = CreateUserPage(browser)
+def step_Fill_All_Fields_Form(test_setup):
+    account = CreateUserPage(test_setup)
     time.sleep(2)
-    account.complete_All_Field_For_New_Account("Lukagesaa", "Cornejosa", "Lukageddd.Cornejo103@darwoft.com",
-                                               "Sol de Mayo 550", "Cordoba", "5000", "Lukagessdd_Corneje", "River101",
+    account.complete_All_Field_For_New_Account("Luka", "Cornej", "Luka.Cornejo107@darwoft.com",
+                                               "Sol de Mayo 550", "Cordoba", "5000", "Lukages23_Corneja", "River101",
                                                "River101")
     time.sleep(2)
     account.create_Country("Argentina")
@@ -39,8 +39,8 @@ def step_Fill_All_Fields_Form(browser):
 
 
 @then("I successfully create my account and verify that I am logged in with my newly created account")
-def step_Login_MyAccount_With_New_User(browser):
-    myaccount = MyAccountPage(browser)
+def step_Login_MyAccount_With_New_User(test_setup):
+    myaccount = MyAccountPage(test_setup)
     time.sleep(2)
     myaccount.continue_Account3()
     time.sleep(2)

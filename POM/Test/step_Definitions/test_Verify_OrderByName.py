@@ -7,12 +7,12 @@ from POM.Pages.MyAccountPage import MyAccountPage
 scenarios('../features/Verify_OrderByName.feature')
 
 @given("I am on the Automation page")
-def step_GoAutomationPage(browser):
+def step_GoAutomationPage(test_setup):
     time.sleep(2)
 
 @when(parsers.parse('select the Books-Paperback products and select sort by "{criteria}"'))
-def step_SelectProductandSortCriteria(browser, criteria):
-    my = MyAccountPage(browser)
+def step_SelectProductandSortCriteria(test_setup, criteria):
+    my = MyAccountPage(test_setup)
     my.seleccionar_Producto_Books_Paperback()
     time.sleep(2)
     my.selectOrderByNameA_Z(criteria)
@@ -20,10 +20,10 @@ def step_SelectProductandSortCriteria(browser, criteria):
 
 
 @then("I verify that the products are ordered by the chosen criteria")
-def step_VerifyOrderOfProducts(browser):
+def step_VerifyOrderOfProducts(test_setup):
     lista1 = ["ALLEGIANT BY VERONICA ROTH", "PAPER TOWNS BY JOHN GREEN",
               "THE MIRACLE MORNING: THE NOT-SO-OBVIOUS SECRET GUARANTEED TO TRANSFORM YOUR LIFE"]
-    my = MyAccountPage(browser)
+    my = MyAccountPage(test_setup)
     paper = my.getListOfPaperback()
     name = my.getNameOfPaperback()
     print(Fore.MAGENTA + "\nEl número de paperback en la página es: " + str(len(my.getListOfPaperback())) + Fore.RESET)

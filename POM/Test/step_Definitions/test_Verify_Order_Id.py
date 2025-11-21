@@ -15,30 +15,30 @@ from POM.Pages.My_Order_History import My_Order_History
 scenarios('../features/Verify_Order_Id.feature')
 
 @given("I am on the Automation test store page logged in, with zero products")
-def step_login(browser):
+def step_login(test_setup):
     time.sleep(2)
     # ir a login page
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     time.sleep(2)
     # Esto permite el logueo
     logpa.do_Login("gonza_mol", "Chicharito10")
 
 
 @when("I select the type of product and its characteristics, confirm the order, and I save the order_id")
-def step_Confirm_Order(browser):
+def step_Confirm_Order(test_setup):
     # Acá selecciono La pagina del producto(lapiz labial) para agregarlo a carrito e ir a la pagina de producto
-    scp = ShoppingCartPage(browser)
-    my = MyAccountPage(browser)
+    scp = ShoppingCartPage(test_setup)
+    my = MyAccountPage(test_setup)
     my.seleccionar_Producto_Makeup1()
     time.sleep(2)
-    lip = LipsPage(browser)
+    lip = LipsPage(test_setup)
     lip.add_Cart1()
     time.sleep(2)
 
     # Acá creo un objeto del  tipo de producto elegido, y selecciono el color, y la cantidad y verifico que coincido lo que pido
-    pp = ProductPage(browser)
+    pp = ProductPage(test_setup)
     pp.select_Product_Lips_Color_And_Qty("Viva Glam II", "1")
     time.sleep(2)
     scp.do_Checkout()
@@ -46,10 +46,10 @@ def step_Confirm_Order(browser):
 
 
 @then("I verify that the order was processed successfully and i checked the Order_id on a Order History section")
-def step_Search_Order_Id(browser):
+def step_Search_Order_Id(test_setup):
     time.sleep(2)
     # Acá creo un objeto del tipo checkoutconfirmationpage
-    ccp = CheckoutConfirmationPage(browser)
+    ccp = CheckoutConfirmationPage(test_setup)
     # con este botón ya confirmo el pedido
     ccp.do_Checkout_Confirmation()
     time.sleep(2)
@@ -62,7 +62,7 @@ def step_Search_Order_Id(browser):
 
     #Acá voy a ir a Order history y busco mi order_id recientemente creado
     ccp.Select_Order_History_Option()
-    moh = My_Order_History(browser)
+    moh = My_Order_History(test_setup)
     #print(moh.Verify_Order_History())
     #aux1 = moh.Verify_Order_History()[10:15]
     aux1 = moh.Verify_Order_History()

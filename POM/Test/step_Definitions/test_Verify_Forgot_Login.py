@@ -8,16 +8,16 @@ from POM.Pages.LandingPage import LandingPage
 scenarios('../features/Verify_Forgot_Login.feature')
 
 @given("I try to enter the Automation test store page, and I don't remember the password")
-def step_GoLoginPage(browser):
+def step_GoLoginPage(test_setup):
     time.sleep(2)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
 
 
 @when(parsers.parse('I select the forgot password option, and lastname "{lastname}" and email "{email}"'))
-def step_ForgotLoginPageAndComplete(browser, lastname, email):
-    lp = LandingPage(browser)
-    flp = ForgotLoginPage(browser)
+def step_ForgotLoginPageAndComplete(test_setup, lastname, email):
+    lp = LandingPage(test_setup)
+    flp = ForgotLoginPage(test_setup)
     lp.selectForgotLogin()
     flp.set_LastName(lastname)
     flp.set_Email(email)
@@ -25,8 +25,8 @@ def step_ForgotLoginPageAndComplete(browser, lastname, email):
 
 
 @then(parsers.parse('I get a message with result "{message}" for password recovery'))
-def step_GetResults(browser):
-    flp = ForgotLoginPage(browser)
+def step_GetResults(test_setup):
+    flp = ForgotLoginPage(test_setup)
     try:
         if ("rgba(223, 240, 216, 1)" == flp.getAlertSuccessMessage().value_of_css_property('background-color')):
            assert "Success: Your login name reminder has been sent to your e-mail address." in flp.getTextSuccesfullMessageAlert()

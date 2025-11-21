@@ -3,7 +3,7 @@ Feature: Switch Between three different windows a capture the url and title
   capture the url and the title on each tab and close it,  and return to the home screen and capture the url and title
 
 
-@Regression, @Sanity
+@Regression @Sanity
   Scenario: Switch between three different windows and capture url and title, and close it
     Given I am in the Automation test store
     When I click on two components of the web and two new tabs open

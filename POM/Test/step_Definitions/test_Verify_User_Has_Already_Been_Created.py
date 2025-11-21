@@ -8,12 +8,12 @@ from POM.Pages.LoginPage import LoginPage
 scenarios('../features/Verify_User_Has_Already_Been_Created.feature')
 
 @given("I am on the Automation test store page and I select the option to create a new account")
-def step_Go_Login_Page_of_Automation_Test_Store(browser):
+def step_Go_Login_Page_of_Automation_Test_Store(test_setup):
     #browser.get(AUTOMATION_PAGE)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
     time.sleep(2)
-    lop = LoginPage(browser)
+    lop = LoginPage(test_setup)
     #check = lop.verify_IsChecked()
     #browser.assertTrue(check, "Está la opción Create Account tildada")
     time.sleep(2)
@@ -22,8 +22,8 @@ def step_Go_Login_Page_of_Automation_Test_Store(browser):
 
 
 @when("I fill in all the fields of the form, with data from an existing user and I confirm that data")
-def step_Complete_Data_With_Already_exist(browser):
-    account = CreateUserPage(browser)
+def step_Complete_Data_With_Already_exist(test_setup):
+    account = CreateUserPage(test_setup)
     time.sleep(2)
     account.complete_All_Field_For_New_Account("Gonzalou", "Molinau", "gonzalo.molina6@darwoft.com",
                                                "Sol de Mayo 550", "Cordoba", "5000", "gonza_mol", "Chicharito20",

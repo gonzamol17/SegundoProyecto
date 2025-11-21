@@ -11,23 +11,23 @@ from POM.Pages.ShampooPage import ShampooPage
 scenarios('../features/Verify_Item_Box.feature')
 
 @given("I am on the Automation test logged")
-def step_login(browser):
+def step_login(test_setup):
      time.sleep(2)
      # ir a login page
-     lp = LandingPage(browser)
+     lp = LandingPage(test_setup)
      lp.click_Go_Login()
-     logpa = LoginPage(browser)
+     logpa = LoginPage(test_setup)
      time.sleep(2)
      # Esto permite el logueo
      logpa.do_Login("gonza_mol", "Chicharito10")
 
 
 @when("I change the currency and i select two products with that currency")
-def step_ChangeCurrency_SelectProducts(browser):
+def step_ChangeCurrency_SelectProducts(test_setup):
      # Verifico que no tenga nada en el carrito de Compras
-     scp = ShoppingCartPage(browser)
-     lp = LandingPage(browser)
-     my = MyAccountPage(browser)
+     scp = ShoppingCartPage(test_setup)
+     lp = LandingPage(test_setup)
+     my = MyAccountPage(test_setup)
      my.seleccionar_Cart_Option()
 
      try:
@@ -47,8 +47,8 @@ def step_ChangeCurrency_SelectProducts(browser):
      time.sleep(4)
 
 @then("selecting the item box, i have to view the two selected products and they are in the changed currency.")
-def step_VerifyItemBox(browser):
-     sp = ShampooPage(browser)
+def step_VerifyItemBox(test_setup):
+     sp = ShampooPage(test_setup)
      time.sleep(4)
      sp.add_Fragance()
      currencyfrangance = sp.get_PriceFragance()
@@ -57,9 +57,9 @@ def step_VerifyItemBox(browser):
      sp.add_Pantene()
      currencypantene = sp.get_PricePantene()
      titlepantene = sp.get_TitlePantene()
-     browser.execute_script("window.scrollTo(0, 400)")
+     test_setup.execute_script("window.scrollTo(0, 400)")
      time.sleep(4)
-     my = MyAccountPage(browser)
+     my = MyAccountPage(test_setup)
      my.open_ItemBox()
      time.sleep(4)
      productfragance = my.get_TitleFragance()

@@ -10,23 +10,23 @@ from POM.Pages.ContactUsPage import ContactUsPage
 scenarios('../features/Verify_ContactUsForm.feature')
 
 @given("I am on the Automation test logged in")
-def step_Login(browser):
+def step_Login(test_setup):
     time.sleep(2)
     # ir a login page
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     time.sleep(2)
     # Esto permite el logueo
     logpa.do_Login("gonza_mol", "Chicharito10")
 
 
 @when("I select the Contact Us option in the footer of the page")
-def step_SendRequest(browser):
-    account = MyAccountPage(browser)
+def step_SendRequest(test_setup):
+    account = MyAccountPage(test_setup)
     account.seleccionar_ContactUs_Option()
     time.sleep(2)
-    cu = ContactUsPage(browser)
+    cu = ContactUsPage(test_setup)
     print(cu.verificar_ContactUs_Form())
     time.sleep(2)
     assert cu.verificar_ContactUs_Form() == "Contact Us Form"
@@ -34,8 +34,8 @@ def step_SendRequest(browser):
 
 
 @when(parsers.parse('Fill form name "{name}", email "{email}", Enquiry "{message}"'))
-def step_FillForm(browser, name, email, message):
-    cu = ContactUsPage(browser)
+def step_FillForm(test_setup, name, email, message):
+    cu = ContactUsPage(test_setup)
     time.sleep(2)
     cu.fill_FirstName(name)
     time.sleep(2)
@@ -48,8 +48,8 @@ def step_FillForm(browser, name, email, message):
 
 
 @then("I want to verify that my question has been sent successfully")
-def step_Verify_successful_Sending_Request(browser):
-    cu = ContactUsPage(browser)
+def step_Verify_successful_Sending_Request(test_setup):
+    cu = ContactUsPage(test_setup)
     message = cu.Verify_Enquiry_Success()
     assert message == "Your enquiry has been successfully sent to the store owner!"
     print(Fore.GREEN + "El formulario se ha enviado exitosamente")
@@ -57,13 +57,13 @@ def step_Verify_successful_Sending_Request(browser):
 
 
 @when("I do not complete any of the fields")
-def step_EmptyFields(browser):
-    cu = ContactUsPage(browser)
+def step_EmptyFields(test_setup):
+    cu = ContactUsPage(test_setup)
     cu.sendForm()
 
 @then("I want to verify that the validation errors are displayed in each of the fields")
-def step_VerifyErrorValidation(browser):
-    cu = ContactUsPage(browser)
+def step_VerifyErrorValidation(test_setup):
+    cu = ContactUsPage(test_setup)
     name = cu.get_FirstName()
     email = cu.get_Email()
     enquiry = cu.get_Enquiry()

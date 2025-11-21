@@ -9,23 +9,23 @@ from POM.Pages.MyAccountPage import MyAccountPage
 scenarios('../features/Verify_ElementsOfMenu.feature')
 
 @given("I am on the Automation test store page login")
-def step_login(browser):
+def step_login(test_setup):
     time.sleep(2)
     # ir a login page
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     time.sleep(2)
 
 
 @when("I am on the My Account page, i verify the number of Items that exist in the menu")
-def step_VerifyNumberOfElements(browser):
-    account = MyAccountPage(browser)
+def step_VerifyNumberOfElements(test_setup):
+    account = MyAccountPage(test_setup)
 
 
 @then("I return the number of items/columns, and each of the menu items.")
-def step_ShowElementsMenu(browser):
-    account = MyAccountPage(browser)
+def step_ShowElementsMenu(test_setup):
+    account = MyAccountPage(test_setup)
     n = account.getNumberMenuItems()
     print(Fore.RED + Style.BRIGHT + "La cantidad de elementos en el menú es: " + str(n) + Style.RESET_ALL)
     time.sleep(2)

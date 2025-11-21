@@ -9,20 +9,20 @@ from POM.Pages.MyAccountPage import MyAccountPage
 scenarios('../features/Verify_Edit_Manage_Address_Book.feature')
 
 @given("I am on login in the Automation test page")
-def step_Login(browser):
-    lp = LandingPage(browser)
+def step_Login(test_setup):
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
     time.sleep(2)
-    lp = LandingPage(browser)
+    lp = LandingPage(test_setup)
     lp.click_Go_Login()
-    logpa = LoginPage(browser)
+    logpa = LoginPage(test_setup)
     time.sleep(2)
     logpa.do_Login("gonza_mol", "Chicharito10")
 
 
 @when("I click on the Manage Address Book option, and verify that I have an existing address, editing it and saving that data")
-def step_EditAddressBook(browser):
-    account = MyAccountPage(browser)
+def step_EditAddressBook(test_setup):
+    account = MyAccountPage(test_setup)
     n = account.getQuantityOfAddressBook()
     assert n != 0
     print(Fore.MAGENTA + "\nSe tiene al menos una dirección ingresada y es: " + Fore.RESET + Fore.GREEN + n + Fore.RESET)
@@ -30,7 +30,7 @@ def step_EditAddressBook(browser):
     account.selectBoxManageAddressBook()
     time.sleep(2)
     account.selectBtnEditAddressBook()
-    browser.execute_script("window.scrollTo(0, 500)")
+    test_setup.execute_script("window.scrollTo(0, 500)")
     time.sleep(2)
     account.setAddressTwoAddressBook("")
     time.sleep(3)
@@ -39,8 +39,8 @@ def step_EditAddressBook(browser):
 
 
 @then("I verify that the system shows me an edited address message, and the new address is within Address Book Entries")
-def step_CheckEditedAddress(browser):
-    account = MyAccountPage(browser)
+def step_CheckEditedAddress(test_setup):
+    account = MyAccountPage(test_setup)
     message = account.getAlertMessageAddressBook()
     assert message in "×\nYour address has been successfully updated"
     assert 'rgba(60, 118, 61, 1)' in account.getObjectAlertMessageAddressBook().value_of_css_property('color')
