@@ -3,7 +3,7 @@ Feature: Check all testimonials and print them
   and print them
 
 
-@Regression @Sanity
+@Regression
   Scenario: Verify each of the testimonials and print them
     Given I am on the Automation test
     When I scroll to the bottom of the screen, and check each of the items in the Testimonials section

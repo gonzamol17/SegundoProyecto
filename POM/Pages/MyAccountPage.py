@@ -119,6 +119,7 @@ class MyAccountPage():
 
 
     def select_HairCare_Shampoo(self):
+        time.sleep(2)
         hover = ActionChains(self.driver).move_to_element(self.driver.find_element(*MyAccountPageLocators.hair_care_btn))
         hover.perform()
         self.driver.find_element(*MyAccountPageLocators.shampoo_option).click()

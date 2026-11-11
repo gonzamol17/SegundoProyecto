@@ -1,15 +1,19 @@
 import time
+import logging
 import unittest
 from pytest_bdd import scenarios, parsers, given, when, then, scenario
 from POM.Pages.LandingPage import LandingPage
 from POM.Pages.LoginPage import LoginPage
 from POM.Pages.MyAccountPage import MyAccountPage
 from POM.Pages.ShampooPage import ShampooPage
+from Utils.logger_manager import get_logger
 
 scenarios('../features/Verify_Review.feature')
 
 @given("I am on login in the Automation test")
 def step_login(test_setup):
+    log = get_logger("Test verify Review")
+    log.info("Por empezar la ejecución del test")
     time.sleep(2)
     # ir a login page
     lp = LandingPage(test_setup)
@@ -47,6 +51,6 @@ def step_GiveScoreAndReview(test_setup, name, note):
 def step_GetError(test_setup):
     sp = ShampooPage(test_setup)
     error = sp.errorWithoutCode()
-    assert "Human verification has failed! Please try again." in sp.errorWithoutCode()
+    assert "Humanoide verification has failed! Please try again." in sp.errorWithoutCode()
     print("Al no cargar el código requerido, se está mostrando un mensaje de error: "+sp.errorWithoutCode())
 
